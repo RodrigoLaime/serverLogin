@@ -9,10 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 const corsOption = {
-  origin: [
-    'http://localhost:3000',
-    'https://main--gentle-taffy-cb9058.netlify.app/'
-  ],
+  /*  origin: [
+     'http://localhost:3000',
+     'https://main--gentle-taffy-cb9058.netlify.app/'
+   ], */
+  origin: '*',
   credentials: true,
   optionSuccessStatus: 200
 }

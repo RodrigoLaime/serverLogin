@@ -4,6 +4,9 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
 
+const serverless = require('serverless-http');
+
+
 const app = express();
 
 app.use(express.json());
@@ -20,8 +23,8 @@ app.use(cors()); // da acceso a cualquier origin
 dotenv.config();
 
 // connection router
-app.use('/auth', require('./routers/userRouter'));
-app.use('/customer', require('./routers/customerRouter'));
+app.use('/.netlify/functions/api/auth', require('./routers/userRouter'));
+app.use('/.netlify/functions/api/customer', require('./routers/customerRouter'));
 
 //midleware activq el cors para permitir peticion ajax y http desde el front 
 app.use((req, res, next) => {
@@ -48,3 +51,4 @@ mongoose.connect(url, {
 //connection port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log('server started on port:', PORT));
+module.exports.handler = serverless(app)

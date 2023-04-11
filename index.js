@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser')
@@ -8,10 +8,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
+app.use(cors(/* {
     origin: ['http://localhost:3000'],
     credentials: true,
-}));
+} */));
 dotenv.config();
 
 // connection router
@@ -24,13 +24,13 @@ const key = process.env.DB_KEY
 const url = `mongodb+srv://${user}:${key}@cluster0.kpp1aja.mongodb.net/Loginjwt`;
 /* const url = `mongodb+srv://${user}:${key}@cluster0.kpp1aja.mongodb.net/?retryWrites=true&w=majority`; */
 mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
-.then(() => console.log('Connected to MongoDB succes'))
-.catch(err => console.error(err));
+  .then(() => console.log('Connected to MongoDB succes'))
+  .catch(err => console.error(err));
 
 
 //connection port
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log('server started on port:', PORT));

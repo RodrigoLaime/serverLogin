@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser')
-/* const cors = require('cors'); */
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-/* app.use(cors({
+app.use(cors({
   origin: ['http://localhost:3000'],
   credentials: true,
-})); */
+}));
 /* app.use(cors()); */
 dotenv.config();
 
@@ -19,14 +19,14 @@ dotenv.config();
 app.use('/auth', require('./routers/userRouter'));
 app.use('/customer', require('./routers/customerRouter'));
 
-//midleware activq el cors para permitir peticion ajax y http desde el front 
+/* //midleware activq el cors para permitir peticion ajax y http desde el front 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Header', 'Authorization, X-API-KEY, Origin, X-Requested-With, Access-Control-Allow-Request-Method');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
-});
+}); */
 
 // connection db
 const user = process.env.DB_NAME

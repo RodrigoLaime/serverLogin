@@ -9,7 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ['http://localhost:3000'],
+  origin: [
+    'http://localhost:3000',
+    'https://main--gentle-taffy-cb9058.netlify.app/'
+  ],
   credentials: true,
 }));
 /* app.use(cors()); */

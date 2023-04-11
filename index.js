@@ -8,13 +8,15 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
+const corsOption = {
   origin: [
     'http://localhost:3000',
     'https://main--gentle-taffy-cb9058.netlify.app/'
   ],
   credentials: true,
-}));
+  optionSuccessStatus: 200
+}
+app.use(cors(corsOption));
 /* app.use(cors()); */
 dotenv.config();
 

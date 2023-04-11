@@ -15,10 +15,11 @@ const corsOption = {
   ],
   /*   origin: '*', */
   credentials: true,
+  withCredentials: true
   /*   optionSuccessStatus: 200 */
 }
 app.use(cors(corsOption));
-/* app.use(cors()); */
+/* app.use(cors()); da acceso a cualquier origin */
 dotenv.config();
 
 // connection router

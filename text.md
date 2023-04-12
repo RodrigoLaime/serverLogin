@@ -9,3 +9,8 @@ Las cookies son pequeñas cadenas de datos que se almacenan en el navegador del 
 DB_NAME=hp-envy
 DB_KEY=q1kMHqGtFxS57YUI
 JWT_SECRET=-ug`(9nf!N(R}/~+X=9)TH\c*K[UN6td7<{qXPMv?Z<2-Fsn&'
+
+
+"dev": "nodemon index",
+    "start": "node index",
+    "build": "netlify deploy --prod"

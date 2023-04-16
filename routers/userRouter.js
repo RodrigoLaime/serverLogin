@@ -121,7 +121,7 @@ router.get('/logout', (req, res) => {
   }
 })
 
-//no me quedo claro
+//verifica si esta logueado 
 router.get('/loggedIn', (req, res) => {
   try {
     //obtener el token de la cookie(manera de obtener info desde la cookie)

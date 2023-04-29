@@ -11,7 +11,8 @@ app.use(cookieParser());
 const corsOption = {
   origin: [
     'http://localhost:3000',
-    'https://main--gentle-taffy-cb9058.netlify.app'
+    'https://gentle-taffy-cb9058.netlify.app/'
+    // 'https://main--gentle-taffy-cb9058.netlify.app'
   ],
   credentials: true,
 }
